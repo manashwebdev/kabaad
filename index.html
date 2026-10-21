@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KABAAD — Art made from what’s left</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2efe6;--ink:#0b0b0b;--hot:#ff4d00;--mid:#d8d2c0;--rust:#8a3b12;--dk:#0b0b0b;--lt:#f2efe6;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#121110;--ink:#f2efe6;--mid:#25231f;--rust:#c2552a}}
+*,*::before,*::after{box-sizing:inherit}html{scroll-padding-top:70px}html:not(.lenis){scroll-behavior:smooth}html.lenis{scroll-behavior:auto!important}html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.55 'Space Mono',monospace}
+a{color:inherit}:focus-visible{outline:4px solid var(--hot);outline-offset:3px}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;margin:0;line-height:.9}
+.wrap{width:min(1280px,100% - 2rem);margin-inline:auto}
+.tick{background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;font-weight:700;text-transform:uppercase;font-size:.8rem;padding:.55rem 0}.tick div{display:flex;gap:2.5rem;width:max-content;animation:tk 28s linear infinite}@keyframes tk{to{transform:translateX(-50%)}}
+nav{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:4px solid var(--ink)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem 0}
+.logo{font:400 2rem Anton;text-decoration:none;letter-spacing:.04em;background:var(--hot);color:var(--dk);padding:0 .6rem;border:4px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;font-weight:700;text-transform:uppercase;font-size:.85rem}nav ul a{text-decoration:none;border-bottom:3px solid transparent}nav ul a:hover,nav ul a.act{border-color:var(--hot)}
+.btn{font:700 .9rem 'Space Mono';text-transform:uppercase;cursor:pointer;color:var(--dk);background:var(--hot);border:4px solid var(--ink);padding:.8rem 1.2rem;box-shadow:6px 6px 0 var(--ink);transition:transform .08s,box-shadow .08s;text-decoration:none;display:inline-block;min-height:48px}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}.btn:active{transform:translate(5px,5px);box-shadow:1px 1px 0 var(--ink)}
+.btn.k{background:var(--ink);color:var(--bg)}.btn.s{padding:.45rem .8rem;font-size:.75rem;min-height:40px;box-shadow:4px 4px 0 var(--ink)}
+.hero{position:relative;padding:clamp(2rem,5vw,4rem) 0 clamp(3rem,6vw,5rem)}
+.hero h1{font-size:clamp(4.2rem,16vw,14rem);letter-spacing:-.01em}.hero h1 mark{background:var(--hot);color:var(--dk);padding:0 .12em;display:inline-block;transform:rotate(-2.5deg);border:4px solid var(--ink)}
+.hero p{max-width:46ch;font-size:1.05rem;border-left:8px solid var(--hot);padding-left:1rem;margin:2rem 0}
+.sticker{position:absolute;font:700 .8rem 'Space Mono';text-transform:uppercase;padding:.5rem .9rem;border:4px solid var(--ink);background:var(--bg);box-shadow:5px 5px 0 var(--ink)}
+.s1{right:2%;top:12%;transform:rotate(7deg)}.s2{right:12%;bottom:10%;transform:rotate(-6deg);background:var(--ink);color:var(--bg)}
+.badge{position:absolute;right:3%;top:42%;width:clamp(110px,14vw,170px);aspect-ratio:1;border-radius:50%;background:var(--hot);color:var(--dk);border:4px solid var(--ink);display:grid;place-items:center;font:400 1.6rem/1 Anton;text-align:center;animation:rt 14s linear infinite}@keyframes rt{to{transform:rotate(360deg)}}
+section{padding:clamp(3rem,7vw,6rem) 0;border-top:4px solid var(--ink)}
+.hd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.5rem;margin-bottom:2rem}.hd h2{font-size:clamp(3rem,9vw,7rem)}
+#g{display:grid;grid-template-columns:repeat(6,1fr);gap:1.4rem;align-items:start}
+.it{position:relative;grid-column:span 2;border:4px solid var(--ink);padding:1rem;background:var(--bg);color:var(--ink);box-shadow:8px 8px 0 var(--ink);transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .2s}
+.it:hover{z-index:2}.it svg{display:block;width:100%;aspect-ratio:1;max-height:230px;fill:none;stroke:currentColor;stroke-width:5;stroke-linejoin:round}
+.it h3{font-size:1.9rem;margin-top:.8rem}.it small{display:block;opacity:.85}.it .row{display:flex;justify-content:space-between;align-items:center;margin-top:.9rem;gap:.5rem;font-weight:700}
+.it .btn{box-shadow:4px 4px 0 var(--ink)}
+.it.cl::after{content:"CLAIMED";position:absolute;inset:35% 8% auto;text-align:center;font:400 3rem Anton;color:var(--hot);border:6px solid var(--hot);transform:rotate(-12deg);background:#0b0b0bcc;padding:.2rem}
+.art{background:var(--ink);color:var(--bg)}.art .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+.art h2{font-size:clamp(3.5rem,11vw,9rem)}.art h2 span{color:var(--hot)}
+.box{border:4px solid var(--bg);padding:1.5rem;box-shadow:8px 8px 0 var(--hot)}.box q{font:400 1.8rem/1.1 Anton;text-transform:uppercase;display:block;margin-bottom:1rem;quotes:"“" "”"}
+.chain{display:flex;gap:.2rem;margin-top:1.2rem}.chain i{width:30px;height:46px;border:6px solid var(--hot);border-radius:20px;margin-right:-10px;flex:none}
+.sell{background:var(--hot);color:var(--dk)}.sell .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}.sell h2{font-size:clamp(3rem,9vw,7rem)}
+form{display:grid;gap:1rem}label{display:grid;gap:.3rem;font-weight:700;text-transform:uppercase;font-size:.8rem}
+input,select,textarea{font:400 1rem 'Space Mono';border:4px solid var(--dk);background:var(--lt);color:var(--dk);padding:.8rem;min-height:50px;border-radius:0;width:100%}
+.sell .btn{background:var(--dk);color:var(--lt);border-color:var(--dk);box-shadow:6px 6px 0 var(--lt)}
+footer{background:var(--ink);color:var(--bg);padding:3rem 0 4rem;text-align:center}footer h2{font-size:clamp(2.2rem,8vw,6.5rem);line-height:.95}footer h2 em{font-style:normal;color:var(--hot)}
+.mute{font:700 .75rem 'Space Mono';text-transform:uppercase;cursor:pointer;background:none;color:var(--ink);border:3px solid var(--ink);padding:.4rem .6rem;min-height:40px}.mute[aria-pressed=true]{opacity:.5}
+#tr{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.rv{opacity:0;transform:translateY(30px) rotate(.6deg);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-stopped{overflow:hidden}
+#pg{position:fixed;left:0;top:0;height:6px;width:100%;background:var(--hot);transform-origin:0 50%;transform:scaleX(0);z-index:60;border-bottom:2px solid var(--ink)}
+.hero{background:radial-gradient(circle,var(--mid) 1.5px,transparent 2px) 0 0/22px 22px}.hero h1,.sticker,.badge{will-change:transform}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:4px solid var(--ink)}.stats div{padding:1.6rem 1rem;text-align:center;border-right:4px solid var(--ink)}.stats div:last-child{border:0}.stats b{display:block;font:400 clamp(2.4rem,7vw,5.5rem)/1 Anton}.stats span{font-weight:700;text-transform:uppercase;font-size:.78rem}
+.band{overflow:hidden;background:var(--hot);color:var(--dk);border-block:4px solid var(--ink);padding:.5rem 0;white-space:nowrap}.band div{font:400 clamp(3rem,9vw,7rem)/1 Anton;text-transform:uppercase;width:max-content;will-change:transform}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem}.chip{font:700 .8rem 'Space Mono';text-transform:uppercase;cursor:pointer;background:var(--bg);color:var(--ink);border:4px solid var(--ink);padding:.5rem .9rem;min-height:44px;box-shadow:4px 4px 0 var(--ink);transition:transform .08s,box-shadow .08s}.chip:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.it.out{display:none}.it:hover{z-index:2;box-shadow:12px 12px 0 var(--hot)}
+#dr{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);z-index:70;background:var(--bg);border-left:4px solid var(--ink);padding:1.2rem;transform:translateX(105%);transition:transform .5s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;gap:1rem;overflow:auto;visibility:hidden}#dr.open{transform:none;visibility:visible}
+#dr h3{font-size:2.8rem}#dr ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}#dr li{display:flex;justify-content:space-between;gap:1rem;border:3px solid var(--ink);padding:.6rem .8rem;font-weight:700}
+#sc{position:fixed;inset:0;background:#0b0b0b99;z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}#sc.open{opacity:1;pointer-events:auto}
+kbd{font:700 .8rem 'Space Mono';border:3px solid var(--ink);padding:0 .4rem;background:var(--mid)}.pop{animation:pp .35s}@keyframes pp{50%{transform:scale(1.25) rotate(-4deg)}}
+@media(max-width:860px){nav .wrap{flex-wrap:wrap}nav ul{order:3;width:100%;justify-content:space-between;font-size:.75rem}#g{grid-template-columns:repeat(2,1fr)}.it{grid-column:span 1!important;transform:none!important}.art .wrap,.sell .wrap{grid-template-columns:1fr}.sticker,.badge{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#tr{display:none}}
+</style></head><body>
+<canvas id="tr" aria-hidden="true"></canvas><div id="pg" aria-hidden="true"></div><div id="sc"></div>
+<aside id="dr" aria-label="Held pieces" aria-hidden="true"><button class="btn s" id="dx" style="align-self:flex-start">Close ✕</button><h3>Your hold list</h3><ul id="dl"></ul><p id="dt" style="font-weight:700;margin:0"></p>
+<form id="df" style="margin-top:auto"><label>Your email<input type="email" name="e" required autocomplete="email"></label><button class="btn" type="submit">Send enquiry</button><p id="dok" role="status" style="margin:0;font-weight:700"></p></form></aside>
+<div class="tick" aria-hidden="true"><div id="tk"><span>★ Everything is secondhand</span><span>★ Nothing is boring</span><span>★ New finds every Friday</span><span>★ Free pickup above 20 kg</span><span>★ No refunds, only repairs</span></div></div>
+<nav><div class="wrap"><a class="logo" href="#top">KABAAD</a>
+<ul><li><a href="#finds">Finds</a></li><li><a href="#artist">Artist</a></li><li><a href="#sell">Sell scrap</a></li></ul>
+<span style="display:flex;gap:.6rem;align-items:center"><button class="mute" id="mute" aria-pressed="false" aria-label="Toggle sound effects">SFX on</button><button class="btn s k" id="hold" aria-live="polite">Held: 0</button></span></div></nav>
+
+<main id="top"><header class="hero"><div class="wrap" style="position:relative">
+<h1>Make art<br>from what’s <mark>left.</mark></h1>
+<p>KABAAD is a marketplace and zine for people who turn scrap into sculpture. Every piece started in a skip, a garage or a factory floor. Nothing here was made new.</p>
+<a class="btn" href="#finds">See the finds</a> <a class="btn k" href="#sell">Sell your scrap</a>
+<span class="sticker s1">Zero new material</span><span class="sticker s2">Est. in a garage</span><div class="badge" aria-hidden="true">100%<br>SCRAP</div></div></header>
+
+<div class="stats"><div><b data-n="3400">0</b><span>kg scrap saved</span></div><div><b data-n="212">0</b><span>artists on the list</span></div><div><b data-n="1480">0</b><span>pieces sold</span></div></div>
+<div class="band" aria-hidden="true"><div id="bd">Weld it · Bolt it · Bin it? No. · Weld it · Bolt it · Bin it? No. · Weld it · Bolt it · Bin it? No. · Weld it · Bolt it · Bin it? No. ·</div></div>
+<section id="finds"><div class="wrap"><div class="hd rv"><h2>Latest<br>finds</h2><div><p style="max-width:32ch;margin:0 0 1rem">Six pieces, one rule: nothing lines up. Hit the button to throw the page in the air.</p><button class="btn" id="shuf">⟳ Junk shuffle</button> <small>or press <kbd>S</kbd></small></div></div><div class="chips" role="group" aria-label="Filter by price"><button class="chip" data-r="0-99999" aria-pressed="true">All</button><button class="chip" data-r="0-3000" aria-pressed="false">Under ₹3k</button><button class="chip" data-r="3000-5000" aria-pressed="false">₹3k–5k</button><button class="chip" data-r="5000-99999" aria-pressed="false">₹5k+</button></div><div id="g"></div></div></section>
+
+<section class="art" id="artist"><div class="wrap rv"><div><p style="font-weight:700;text-transform:uppercase;color:var(--hot)">Artist of the week</p><h2>Meera<br><span>Joshi</span></h2></div>
+<div class="box"><q>I don’t buy chain. I rescue it.</q><p style="margin:0">Meera collects snapped bicycle chains from repair stalls and welds them into chandeliers that weigh less than they look. 412 chains saved this year.</p><div class="chain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><a class="btn" style="margin-top:1.5rem;background:var(--hot)" href="#finds">Shop her pieces</a></div></div></section>
+
+<section class="sell" id="sell"><div class="wrap rv"><div><h2>Got junk?<br>We’ll pay.</h2><p style="font-size:1.1rem;max-width:36ch">Tell us what’s in the shed. Artists on our list pay fair rates for metal, wood, glass and anything weird. We reply within two days.</p></div>
+<form id="f"><label>Your name<input name="n" required autocomplete="name"></label><label>Email<input type="email" name="e" required autocomplete="email"></label>
+<label>What do you have<select name="t"><option>Metal and machine parts</option><option>Wood and furniture</option><option>Glass and bottles</option><option>Something weird</option></select></label>
+<label>Details<textarea name="d" rows="3"></textarea></label><button class="btn" type="submit">Send us the junk</button><p id="ok" role="status" style="margin:0;font-weight:700"></p></form></div></section></main>
+
+<footer><div class="wrap"><h2>No parking.<br>No refunds.<br><em>No boring art.</em></h2><a class="btn" href="#top" style="margin-top:2rem">↑ Back to the pile</a><p style="margin-top:2rem;opacity:.8">Open till the truck leaves · © KABAAD · Concept demo</p></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),rnd=a=>a[Math.floor(Math.random()*a.length)];
+const S={gear:'<circle cx="50" cy="50" r="30" stroke-width="12" stroke-dasharray="9 6.3"/><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="6" fill="currentColor"/>',
+bolt:'<polygon points="50,8 86,29 86,71 50,92 14,71 14,29"/><circle cx="50" cy="50" r="16"/>',
+can:'<rect x="28" y="16" width="44" height="68"/><path d="M28 30H72M28 70H72M40 40V60M50 40V60M60 40V60"/>',
+spring:'<polyline points="28,8 72,22 28,36 72,50 28,64 72,78 28,92"/>',
+cap:'<circle cx="50" cy="50" r="40" stroke-width="10" stroke-dasharray="7 5.2"/><circle cx="50" cy="50" r="26"/><circle cx="50" cy="50" r="8" fill="currentColor"/>',
+wrench:'<g transform="rotate(-40 50 50)"><rect x="43" y="34" width="14" height="58"/><circle cx="50" cy="24" r="17"/><path d="M44 4V20H56V4" fill="var(--bg)"/></g>'};
+const P=[['Gearhead Clock','Tin gears + bike chain','₹2,400','gear'],['Bolt Garden','Hex nuts, 140 of them','₹1,800','bolt'],['Can-delier','Paint tins, wire, a bulb','₹3,900','can'],['Spring Heron','Mattress coils, welded','₹5,200','spring'],['Cap Mosaic Table','9,000 bottle caps','₹7,500','cap'],['Wrench Totem','Seven spanners, one idea','₹4,300','wrench']];
+$('#g').innerHTML=P.map((p,i)=>`<article class="it" data-i="${i}"><svg viewBox="0 0 100 100" role="img" aria-label="${p[0]}">${S[p[3]]}</svg><h3>${p[0]}</h3><small>${p[1]}</small><div class="row"><span>${p[2]}</span><button class="btn s">Claim</button></div></article>`).join('');
+let held=[];
+function shuffle(){document.querySelectorAll('.it').forEach(el=>{const c=rnd([['var(--bg)','var(--ink)'],['var(--hot)','var(--dk)'],['var(--ink)','var(--bg)'],['var(--mid)','var(--ink)']]);el.style.gridColumn='span '+rnd([2,2,3,3,4]);el.style.transform=`rotate(${(Math.random()*7-3.5).toFixed(1)}deg) translateY(${Math.floor(Math.random()*26)}px)`;el.style.background=c[0];el.style.color=c[1]});SFX.shuf()}
+$('#shuf').onclick=shuffle;
+const pr=i=>+P[i][2].replace(/\D/g,'');
+function dr(){const h=$('#hold');h.textContent='Held: '+held.length;h.classList.remove('pop');void h.offsetWidth;h.classList.add('pop');$('#dl').innerHTML=held.map(i=>`<li><span>${P[i][0]}</span><span>${P[i][2]}</span></li>`).join('')||'<li>Nothing yet. Claim a piece.</li>';$('#dt').textContent=held.length?'Total: ₹'+held.reduce((s,i)=>s+pr(i),0).toLocaleString('en-IN'):''}
+function opn(o){$('#dr').classList.toggle('open',o);$('#sc').classList.toggle('open',o);$('#dr').setAttribute('aria-hidden',!o);if(o){SFX.click();$('#dx').focus()}}
+dr();$('#hold').onclick=()=>opn(true);$('#dx').onclick=$('#sc').onclick=()=>opn(false);
+addEventListener('keydown',e=>{if(e.key==='Escape')opn(false);if((e.key==='s'||e.key==='S')&&!e.metaKey&&!e.ctrlKey&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))shuffle()});
+document.querySelectorAll('.it .btn').forEach(b=>b.onclick=()=>{const it=b.closest('.it'),i=+it.dataset.i,on=it.classList.toggle('cl');b.textContent=on?'Release':'Claim';held=on?[...held,i]:held.filter(x=>x!==i);dr();on?SFX.stamp():SFX.tick()});
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));const[lo,hi]=c.dataset.r.split('-').map(Number);document.querySelectorAll('.it').forEach(it=>{const p=pr(+it.dataset.i);it.classList.toggle('out',p<lo||p>=hi)});SFX.tick()});
+let sx,sm=false,ug=0;addEventListener('pointerdown',()=>ug=1,{once:true});addEventListener('keydown',()=>ug=1,{once:true});
+function sc(){sx=sx||new(window.AudioContext||window.webkitAudioContext)();if(sx.state==='suspended')sx.resume();return sx}
+function tn(f,d,ty,v,sl){if(sm||!ug)return;const c=sc(),t=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type=ty;o.frequency.setValueAtTime(f,t);if(sl)o.frequency.exponentialRampToValueAtTime(sl,t+d);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d)}
+function nz(d,f,v){if(sm||!ug)return;const c=sc(),n=Math.floor(c.sampleRate*d),b=c.createBuffer(1,n,c.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=(Math.random()*2-1)*(1-i/n);const s=c.createBufferSource(),fl=c.createBiquadFilter(),g=c.createGain();s.buffer=b;fl.type='bandpass';fl.frequency.value=f;g.gain.value=v;s.connect(fl);fl.connect(g);g.connect(c.destination);s.start()}
+const SFX={tick:()=>tn(900,.04,'square',.04),click:()=>{tn(140,.12,'sine',.25,60);nz(.05,2500,.08)},stamp:()=>{tn(70,.3,'sine',.4,35);nz(.1,500,.2);tn(1500,.25,'triangle',.05)},shuf:()=>{for(let i=0;i<7;i++)setTimeout(()=>{nz(.07,800+Math.random()*2500,.12);tn(180+Math.random()*200,.08,'square',.04)},i*55);setTimeout(()=>tn(1100,.6,'triangle',.07,1180),420)},ok:()=>[392,523,659,784].forEach((f,i)=>setTimeout(()=>tn(f,.5,'square',.05),i*110))};
+addEventListener('click',e=>{if(e.target.closest('.btn')&&!e.target.closest('#shuf')&&!e.target.closest('.it'))SFX.click()});
+$('#mute').onclick=function(){sm=!sm;this.setAttribute('aria-pressed',sm);this.textContent=sm?'SFX off':'SFX on';if(!sm){ug=1;SFX.click()}};
+$('#tk').innerHTML+=$('#tk').innerHTML;
+async function post(d){try{const r=await fetch('https://formsubmit.co/ajax/webdevmanash@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...d,_captcha:'false',_template:'table'})});if(!r.ok)throw 0;return 1}catch(x){location.href='mailto:webdevmanash@gmail.com?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent(Object.entries(d).filter(([k])=>k[0]!=='_').map(([k,v])=>k+': '+v).join('\n'));return 0}}
+$('#df').onsubmit=async e=>{e.preventDefault();const o=$('#dok');if(!held.length){o.textContent='Claim a piece first.';return}const f=e.target,b=f.querySelector('button');b.disabled=true;o.textContent='Sending…';const ok=await post({email:f.e.value,pieces:held.map(i=>P[i][0]+' '+P[i][2]).join(', '),_subject:'KABAAD: enquiry for '+held.length+' piece(s)'});o.textContent=ok?'Sent. We’ll write back within a day.':'Opening your email app instead…';if(ok){SFX.ok();f.reset()}b.disabled=false};
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(!x.isIntersecting)return;co.unobserve(x.target);const el=x.target,n=+el.dataset.n,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString('en-IN');if(p<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});document.querySelectorAll('[data-n]').forEach(x=>co.observe(x));
+(()=>{const pg=$('#pg'),h1=$('.hero h1'),st=document.querySelectorAll('.sticker,.badge'),bd=$('#bd'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;let tk=0;function u(){tk=0;const y=scrollY,m=document.documentElement.scrollHeight-innerHeight;pg.style.transform='scaleX('+(m>0?y/m:0)+')';if(rm)return;h1.style.transform='translate3d(0,'+(y*.1)+'px,0)';st.forEach((s,i)=>s.style.translate='0 '+(y*(i?-.1:.14))+'px');bd.style.transform='translate3d('+(-y*.4)+'px,0,0)'}addEventListener('scroll',()=>{if(!tk)tk=requestAnimationFrame(u)},{passive:true});u()})();
+$('#f').onsubmit=async e=>{e.preventDefault();const f=e.target,o=$('#ok'),b=f.querySelector('button'),d={name:f.n.value,email:f.e.value,type:f.t.value,details:f.d.value,_subject:'KABAAD: new scrap offer',_captcha:'false',_template:'table'};b.disabled=true;o.textContent='Sending…';
+try{const r=await fetch('https://formsubmit.co/ajax/webdevmanash@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)});if(!r.ok)throw 0;o.textContent='Got it, '+d.name.split(' ')[0]+'. We’ll reply in two days.';SFX.ok();f.reset()}
+catch(x){o.textContent='Opening your email app instead…';location.href='mailto:webdevmanash@gmail.com?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent(['Name: '+d.name,'Email: '+d.email,'Type: '+d.type,'Details: '+d.details].join('\n'))}
+b.disabled=false};
+const rv=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.rv').forEach(x=>rv.observe(x));
+const NL=document.querySelectorAll('nav ul a'),so=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)NL.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+x.target.id))}),{threshold:.4});['finds','artist','sell'].forEach(i=>so.observe($('#'+i)));
+if(window.Lenis&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const L=new Lenis({lerp:.07,wheelMultiplier:.9,touchMultiplier:1.5});const raf=t=>{L.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();L.scrollTo(t,{offset:-70})}}))}
+if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const c=$('#tr'),x=c.getContext('2d');let w,h,m=[];const rs=()=>{w=c.width=innerWidth;h=c.height=innerHeight};rs();addEventListener('resize',rs);
+addEventListener('pointermove',e=>{if(m.length<90)m.push({x:e.clientX,y:e.clientY,r:Math.random()*3,s:5+Math.random()*10,a:1,w:Math.random()>.5})});
+(function f(){x.clearRect(0,0,w,h);const rust=getComputedStyle(document.documentElement).getPropertyValue('--rust').trim();m=m.filter(q=>(q.a-=.018)>0);m.forEach(q=>{x.save();x.globalAlpha=q.a*.85;x.fillStyle=rust;x.translate(q.x,q.y);x.rotate(q.r);x.fillRect(-q.s/2,-q.s/(q.w?5:2),q.s,q.s/(q.w?2.5:1));x.restore()});requestAnimationFrame(f)})()}
+</script></body></html>
